@@ -3,7 +3,7 @@ pragma solidity >=0.4.16 <0.9.0;
 
 contract TransactionHashStore {
 
-    string question_value = "0";
+    uint256 question_value = "0";
 
     string question_value_hash = "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9";
     
