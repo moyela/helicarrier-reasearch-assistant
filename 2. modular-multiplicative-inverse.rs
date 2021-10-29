@@ -1,11 +1,12 @@
 //finding the modular multiplicative inverse of a given number and modulus pair
 
-//adding this std::io moudule lets the program use inbuilt input/output functions
-//we need this so we can accept our number and modulus from the user as inputs
+//adding this std::io moudule lets the program use inbuilt Rust input/output functions
+//this module allows us to accept our number and modulus from the user as inputs
 use std::io;
 
 
 //in Rust the main function below automatically runs once the program is compiled
+//all the processes that need to be immediately run are declared in main
 fn main() 
     {   
         //the function below is used to print text to the console in rust
@@ -35,17 +36,17 @@ fn main()
         //the match statement below accepts a user input and writes it to: input_modulus
         match io::stdin().read_line(&mut input_modulus) 
         {
-
+            
             Ok(_) => println!("success! your number is: {} and your modulus is: {}", input_number, input_modulus);
-
+            //if successful, our inputs will be in character type, similar to string
+            
             Err(e) => println!("oh! something went wrong. please restart");
 
         }
 
-        //if successful, our inputs will be in character type, similar to string
-        //the trim function below removes the whitespace around our input
+        //the trim function: trim() removes the whitespace around our input
         //ch.to.digit() converts our input from character data type to integer
-        //the number inside ch.to.digit() indicates the base conversion, 10 means decimal [base 10]
+        //the ch.to.digit() argument indicates the base conversion, 10 means the number will be in decimal form [base 10]
         input_number = input_number.trim() = ch.to_digit(10).unwrap();
         input_modulus = input_modulus.trim() = ch.to_digit(10).unwrap();
 
@@ -53,7 +54,6 @@ fn main()
         modular_inverse(input_number, input_modulus);
 
     }
-
 
 //the given number is accepted as 'a'
 //the given modulus is accepted as 'm'
@@ -63,18 +63,16 @@ fn modular_inverse(a, m)
         let m = input_modulus;
         let initial_modulus = m;
 
-        // in 'y: i64' below, y is assigned the data type i64
+        // y: i64 below indicates that y is assigned the data type i64
         // i64 refers to 64 bit signed integer data type used in Rust
         let mut y: i64 = 0;
-
         let mut x: i64 = 1;
         //variables in Rust are immutable by default
         //declaring mut changes y and x to mutable variables
 
-        //the if statement below runs the code in bracket if its condition is true
-        //the function below returns 0 because the modular multiplicative inverse of any number with modulus 1 is 0
-        //1 is a perfect divisor for all integers
         if m == 1
+        //this function returns 0 because the modular multiplicative inverse of any number with modulus 1 is 0
+        //1 is a perfect divisor for all integers
         {
 
             return 0;
@@ -94,7 +92,7 @@ fn modular_inverse(a, m)
             let mut t = m;
 
             //using the Euclidean algorithm, we evaluate the remainder and divisors of a and m
-            //using the new values, we iterate until a drops below 1
+            //we iterate with the newly assigned values until the value of a drops below 1
             m = a % m;
 
             a = t;
@@ -120,6 +118,5 @@ fn modular_inverse(a, m)
         //if everything has worked exactly as it's supposed to up to this point, we print the modular multiplicative inverse as given below
         println!("{} is the modular multiplicative inverse of a number: {} with modulus: {}", x, input_number, input_modulus); 
 
-        //ces't fin!!!
-
     }
+//ces't fin.
