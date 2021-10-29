@@ -1,0 +1,1 @@
+It's important that as a local crypto community, we build skillsets and expertise across multiple domains: Deep Math, Cryptography, Crypto protocol development, smart contracts, crypto applications, UX improvements, Game theory and Finance.
